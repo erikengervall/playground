@@ -1,0 +1,29 @@
+{
+  "name": "playground",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node ./index",
+    "test": "jest -- dummy.spec.ts"
+  },
+  "dependencies": {
+    "execa": "^2.0.4",
+    "nodemon": "^1.19.2",
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1"
+  }
+}

@@ -12,8 +12,7 @@
   ],
   "scripts": {
     "start": "ts-node ./index",
-    "test": "jest -- dummy.spec.ts",
-    "publish": "lerna publish??"
+    "test": "jest -- dummy.spec.ts"
   },
   "dependencies": {
     "execa": "^2.0.4",

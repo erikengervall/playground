@@ -2,5 +2,6 @@
   "name": "@engervall/playground",
   "version": "0.0.2",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "1326a9ea1e2ef689611369a5f4f1d9817fe075fb"
 }

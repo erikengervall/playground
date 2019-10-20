@@ -2,5 +2,6 @@
   "name": "@engervall/playground-2",
   "version": "0.0.4",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "private": false
 }

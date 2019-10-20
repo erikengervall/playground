@@ -1,0 +1,10 @@
+{
+  "name": "@engervall/playground-3",
+  "version": "0.0.6",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "echo \"@engervall/playground-3 👋\""
+  }
+}

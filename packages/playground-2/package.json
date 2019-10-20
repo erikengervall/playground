@@ -2,5 +2,8 @@
   "name": "@engervall/playground-2",
   "version": "0.0.6",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"@engervall/playground-2 👋\""
+  }
 }

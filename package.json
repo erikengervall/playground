@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "start": "ts-node ./index",
-    "test": "jest -- dummy.spec.ts"
+    "test:root": "jest -- dummy.spec.ts",
+    "test": "yarn test:root && lerna run test --stream --concurrency 1"
   },
   "dependencies": {
     "execa": "^2.0.4",

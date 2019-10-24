@@ -44,7 +44,7 @@ jobs:
           versionSpec: '12.x'
       - bash: echo "*** Uno"
         displayName: Uno
-      - bash: echo "*** about to echo hello"
+      - bash: echo "Build.SourceBranch, ${Build.SourceBranch}"
         displayName: prep
       - bash: echo "hello :wave:"
         displayName: hello

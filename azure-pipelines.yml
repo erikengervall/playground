@@ -21,19 +21,6 @@ trigger:
 #     displayName: 'yarn install and build'
 
 jobs:
-  - job: lint
-    displayName: Lint
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '12.x'
-      - bash: echo "*** about to lint ***"
-        displayName: prep
-      - bash: yarn eslint .
-        displayName: LINT!
-
   - job: sayHello
     displayName: Lint
     pool:

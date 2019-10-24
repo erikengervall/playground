@@ -6,32 +6,14 @@
 trigger:
   - master
 
-# pool:
-#   vmImage: 'ubuntu-latest'
-
-# steps:
-#   - task: NodeTool@0
-#     inputs:
-#       versionSpec: '12.x'
-#     displayName: 'Install Node.js'
-
-#   - script: |
-#       yarn
-#       yarn test
-#     displayName: 'yarn install and build'
-
 jobs:
-  - job: sayHello
-    displayName: Lint
+  - job: publish
+    displayName: publish
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - task: NodeTool@0
+      - task: Npm@1
         inputs:
           versionSpec: '12.x'
-      - bash: echo "*** Uno"
-        displayName: Uno
-      - bash: echo "Build.SourceBranch, $(Build.SourceBranc)"
-        displayName: prep
-      - bash: echo "hello :wave:"
-        displayName: hello
+      - bash: TAG=$(Build.SourceBranch) ./scripts/publish.js
+        displayName: runscript

@@ -6,16 +6,45 @@
 trigger:
   - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+# pool:
+#   vmImage: 'ubuntu-latest'
 
-steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '12.x'
-    displayName: 'Install Node.js'
+# steps:
+#   - task: NodeTool@0
+#     inputs:
+#       versionSpec: '12.x'
+#     displayName: 'Install Node.js'
 
-  - script: |
-      yarn
-      yarn test
-    displayName: 'yarn install and build'
+#   - script: |
+#       yarn
+#       yarn test
+#     displayName: 'yarn install and build'
+
+jobs:
+  - job: lint
+    displayName: Lint
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+      - bash: echo "*** about to lint ***"
+        displayName: prep
+      - bash: yarn eslint .
+        displayName: LINT!
+
+  - job: sayHello
+    displayName: Lint
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+      - bash: echo "*** Uno"
+        displayName: Uno
+      - bash: echo "*** about to echo hello"
+        displayName: prep
+      - bash: echo "hello :wave:"
+        displayName: hello

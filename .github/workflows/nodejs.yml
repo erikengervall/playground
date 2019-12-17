@@ -6,7 +6,7 @@ jobs:
   sayhello:
     runs-on: ubuntu-latest
 
-    if: contains(github.ref, 'master') && startsWith(github.ref, 'master')
+    if: contains(github.ref, 'master')
 
     strategy:
       matrix:
@@ -23,7 +23,7 @@ jobs:
           MASTAH: ${{contains(github.ref, 'master')}}
           LETAG: ${{contains(github.ref, 'refs/tags/')}}
         run: |
-          echo "hello3"
+          echo "hello3 ${github.ref}"
           echo "MASTAH: ${MASTAH}"
           echo "LETAG: ${LETAG}"
           if [ ${MASTAH} = true ]; then export NPM_TAG="--tag alpha"; fi

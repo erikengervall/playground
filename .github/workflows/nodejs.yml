@@ -6,7 +6,8 @@ jobs:
   sayhello:
     runs-on: ubuntu-latest
 
-    if: contains(github.ref, 'master') && endsWith(github.ref, 'master')
+    if: contains(github.ref, 'this-will-fail')
+    # if: contains(github.ref, 'master') && endsWith(github.ref, 'master')
 
     strategy:
       matrix:
@@ -18,23 +19,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: sayhello
+      - name: npm publish
         env:
-          MASTAH: ${{contains(github.ref, 'master')}}
-          LETAG: ${{contains(github.ref, 'refs/tags/')}} # e.g. refs/tags/v0.0.1, refs/heads/master
-          WAT: ${{github.ref}}
+          IS_ALPHA: ${{contains(github.ref, 'alpha')}}
+          IS_BETA: ${{contains(github.ref, 'beta')}}
         run: |
-          echo "hello5 ${WAT}"
-          echo "MASTAH: ${MASTAH}"
-          echo "LETAG: ${LETAG}"
-          if [ ${MASTAH} = true ]; then export NPM_TAG="--tag alpha"; fi
-          if [ ${LETAG} = true ]; then export NPM_TAG="--tag beta"; fi
-          echo "npm publish ${NPM_TAG}"
+          if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
+          if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
+          cd packages/playground && npm publish ${NPM_TAG}
 
   website:
     runs-on: ubuntu-latest
 
-    # if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/')
 
     needs: sayhello
 
@@ -44,13 +41,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Dump job context
-        env:
-          GH_REF: ${{github.ref}}
-        run: echo "HUEHUE $GH_REF"
       - name: website
+        if: contains(github.ref, 'this-will-fail')
         run: |
           git config --global user.name "${{secrets.GH_NAME}}"
           git config --global user.email "${{secrets.GH_EMAIL}}"
           echo "machine github.com login ${{secrets.GH_NAME}} password ${{secrets.GH_TOKEN_PLAYGROUND}}" > ~/.netrc
           cd website && yarn install && GIT_USER="${{secrets.GH_NAME}}" yarn run publish-gh-pages
+      - name: npm publish
+        env:
+          IS_ALPHA: ${{contains(github.ref, 'alpha')}}
+          IS_BETA: ${{contains(github.ref, 'beta')}}
+        run: |
+          if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
+          if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
+          cd packages/playground && npm publish ${NPM_TAG}

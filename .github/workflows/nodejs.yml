@@ -22,8 +22,8 @@ jobs:
           LETAG: ${{contains(github.ref, 'refs/tags/')}}
         run: |
           echo "hello3"
-          echo "${MASTAH}"
-          echo "is true ${MASTAH}===\"true\""
+          echo "MASTAH: ${MASTAH}"
+          echo "LETAG: ${LETAG}"
           if [ ${MASTAH} ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${LETAG} ]; then export NPM_TAG="--tag beta"; fi
           echo "npm publish ${NPM_TAG}"

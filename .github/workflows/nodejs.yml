@@ -39,12 +39,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Dump job context
         env:
-          WAT: ${{secrets.GH_NAME}}
-        run: echo "HUEHUE $GH_REF $WAT"
+          GH_REF: ${{github.ref}}
+          GH_SMT: ${{secrets.GH_NAME}}
+        run: echo "HUEHUE $GH_REF $GH_SMT"
       - name: website
         run: |
-          echo "${WAT}"
-          echo "${{WAT}}"
+          echo "${GH_SMT}"
+          echo "${{GH_SMT}}"
           git config --global user.name "${GH_NAME}"
           git config --global user.email "${GH_EMAIL}"
           echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc

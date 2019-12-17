@@ -18,7 +18,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: yarn install, and test
         run: |
-          echo {{github.ref}}
           yarn
           yarn test
 
@@ -37,6 +36,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Dump job context
+        env:
+          GH_REF: ${{github.ref}}
+        run: echo "$GH_REF"
       - name: yarn install, and test 22222
         run: |
           yarn

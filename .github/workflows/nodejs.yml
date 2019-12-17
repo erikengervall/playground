@@ -6,6 +6,9 @@ jobs:
   sayhello:
     runs-on: ubuntu-latest
 
+    if: contains(github.ref, 'master')
+    if: startsWith(github.ref, 'master')
+
     strategy:
       matrix:
         node-version: [12.x]

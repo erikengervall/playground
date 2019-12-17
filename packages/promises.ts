@@ -14,7 +14,7 @@ const failure = async () => {
   throw new Error('failure')
 }
 
-const main = async () => {
+export const main = async () => {
   console.time('main')
   await failure().catch(async error => {
     await handleFailure(error)
@@ -22,7 +22,7 @@ const main = async () => {
   console.timeEnd('main')
 }
 
-main()
+// main()
 
 /**
 ➜  playground git:(master) ✗ yarn ts-node ./Promise/index.ts
@@ -36,3 +36,25 @@ handleFailure { error:
 main: 5021.519ms
 ✨  Done in 6.14s.
  */
+
+const firstHandler = async (earlyAbort: any) => {
+  await sleep()
+
+  // Do stuff
+
+  console.log('1')
+
+  earlyAbort({ erro: 'hello' })
+
+  console.log('3')
+}
+
+const main2 = async () => {
+  await new Promise((_, reject) => {
+    firstHandler(reject)
+  }).catch(error => console.log({ error }))
+
+  console.log('2')
+}
+
+main2()

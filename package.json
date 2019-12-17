@@ -16,23 +16,24 @@
     "test": "yarn test:root && lerna run test --stream --concurrency 1"
   },
   "dependencies": {
-    "execa": "^2.0.4",
-    "nodemon": "^1.19.2",
+    "execa": "^3.3.0",
+    "nodemon": "^1.19.4",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@types/node": "^12.7.5",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.3.0",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.7",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "dockest": "^2.0.0-alpha.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
-    "lerna": "^3.18.1",
-    "prettier": "^1.18.2",
-    "prettier-eslint": "^9.0.0",
+    "lerna": "^3.18.4",
+    "prettier": "^1.19.1",
     "ts-jest": "^24.1.0",
-    "ts-node": "^8.4.1"
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
   }
 }

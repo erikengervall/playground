@@ -6,7 +6,7 @@ jobs:
   sayhello:
     runs-on: ubuntu-latest
 
-    if: contains(github.ref, 'master')
+    if: contains(github.ref, 'master') && endsWith(github.ref, 'master')
 
     strategy:
       matrix:
@@ -21,7 +21,7 @@ jobs:
       - name: sayhello
         env:
           MASTAH: ${{contains(github.ref, 'master')}}
-          LETAG: ${{contains(github.ref, 'refs/tags/')}} # e.g. refs/tags/v0.0.1
+          LETAG: ${{contains(github.ref, 'refs/tags/')}} # e.g. refs/tags/v0.0.1, refs/heads/master
           WAT: ${{github.ref}}
         run: |
           echo "hello5 ${WAT}"

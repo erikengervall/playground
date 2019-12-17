@@ -16,10 +16,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install, and test
+      - name: build1
         run: |
-          yarn
-          yarn test
+          echo "build"
+        # yarn
+        # yarn test
 
   build2:
     runs-on: ubuntu-latest
@@ -40,7 +41,8 @@ jobs:
         env:
           GH_REF: ${{github.ref}}
         run: echo "HUEHUE $GH_REF"
-      - name: yarn install, and test 22222
+      - name: build2
         run: |
-          yarn
-          yarn test
+          echo "build2"
+        # yarn
+        # yarn test

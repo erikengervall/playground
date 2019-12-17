@@ -19,7 +19,7 @@ jobs:
       - name: sayhello
         run: |
           echo "hello"
-          echo "contains(github.ref, 'master')"
+          echo "${contains(github.ref, 'master')}"
 
   website:
     runs-on: ubuntu-latest

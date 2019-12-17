@@ -18,7 +18,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: sayhello
         env:
-          WAT: contains(github.ref, 'master')
+          WAT: ${{contains(github.ref, 'master')}}
         run: |
           echo "hello"
           echo "${WAT}"

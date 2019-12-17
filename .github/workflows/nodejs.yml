@@ -18,8 +18,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: sayhello
         env:
-          master: ${{contains(github.ref, 'master')}}
-          tag: ${{contains(github.ref, '/refs/tags')}}
+          master: contains(github.ref, 'master')
+          tag: contains(github.ref, '/refs/tags')
 
         run: |
           echo "hello2"

@@ -18,11 +18,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: sayhello
         env:
-          WAT: if [ ${{contains(github.ref, 'master')}} ]; then "HELLO"; fi
+          master: ${{contains(github.ref, 'master')}}
+          tag: ${{contains(github.ref, '/refs/tags')}}
 
         run: |
           echo "hello"
-          echo "${WAT}"
+          if [ ${master} ]; then export NPM_TAG=alpha; fi
+          if [ ${tag} ]; then export NPM_TAG=beta; fi
+          echo "npm publish --tag ${NPM_TAG}"
 
   website:
     runs-on: ubuntu-latest

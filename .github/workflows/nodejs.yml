@@ -40,8 +40,7 @@ jobs:
       - name: Dump job context
         env:
           GH_REF: ${{github.ref}}
-          HUH: ${{secrets.GH_NAME}}
-        run: echo "HUEHUE $GH_REF $HUH"
+        run: echo "HUEHUE $GH_REF"
       - name: website
         env:
           GH_NAME: ${{secrets.GH_NAME}}

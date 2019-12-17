@@ -22,9 +22,9 @@ jobs:
         env:
           MASTAH: ${{contains(github.ref, 'master')}}
           LETAG: ${{contains(github.ref, 'refs/tags/')}} # e.g. refs/tags/v0.0.1
-          # WAT: ${{github.ref}}
+          WAT: ${{github.ref}}
         run: |
-          echo "hello3 ${{github.ref}}"
+          echo "hello5 ${WAT}"
           echo "MASTAH: ${MASTAH}"
           echo "LETAG: ${LETAG}"
           if [ ${MASTAH} = true ]; then export NPM_TAG="--tag alpha"; fi

@@ -3,7 +3,7 @@ name: Playground Node CI
 on: push
 
 jobs:
-  build:
+  sayhello:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,16 +16,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: build1
+      - name: sayhello
         run: |
-          echo "build1"
+          echo "hello"
 
-  build2:
+  website:
     runs-on: ubuntu-latest
 
-    if: startsWith(github.ref, 'refs/tags/')
+    # if: startsWith(github.ref, 'refs/tags/')
 
-    needs: build
+    needs: sayhello
 
     strategy:
       matrix:
@@ -41,7 +41,7 @@ jobs:
         env:
           GH_REF: ${{github.ref}}
         run: echo "HUEHUE $GH_REF"
-      - name: build2
+      - name: website
         run: |
           git config --global user.name "${GH_NAME}";
           git config --global user.email "${GH_EMAIL}";

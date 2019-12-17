@@ -23,7 +23,9 @@ jobs:
   website:
     runs-on: ubuntu-latest
 
-    # if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/')
+    # if: contains(github.ref, 'alpha')
+    # if: contains(github.ref, 'beta')
 
     needs: sayhello
 

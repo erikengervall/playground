@@ -39,7 +39,7 @@ jobs:
       - name: Dump job context
         env:
           GH_REF: ${{github.ref}}
-        run: echo "$GH_REF"
+        run: echo "HUEHUE $GH_REF"
       - name: yarn install, and test 22222
         run: |
           yarn

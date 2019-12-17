@@ -20,11 +20,12 @@ jobs:
         env:
           MASTAH: contains(github.ref, 'master')
           LETAG: contains(github.ref, 'refs/tags/')
-
         run: |
           echo "hello3"
-          if [ ${MASTAH} ]; then export NPM_TAG="--tag alpha"; fi
-          if [ ${LETAG} ]; then export NPM_TAG="--tag beta"; fi
+          echo "${MASTAH}"
+          echo "is true ${MASTAH}===\"true\""
+          if [[ ${MASTAH} ]]; then export NPM_TAG="--tag alpha"; fi
+          if [[ ${LETAG} ]]; then export NPM_TAG="--tag beta"; fi
           echo "npm publish ${NPM_TAG}"
 
   website:

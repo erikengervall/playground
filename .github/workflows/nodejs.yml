@@ -24,8 +24,8 @@ jobs:
           echo "hello3"
           echo "MASTAH: ${MASTAH}"
           echo "LETAG: ${LETAG}"
-          if [ ${MASTAH} ]; then export NPM_TAG="--tag alpha"; fi
-          if [ ${LETAG} ]; then export NPM_TAG="--tag beta"; fi
+          if [ ${MASTAH} = true ]; then export NPM_TAG="--tag alpha"; fi
+          if [ ${LETAG} = true ]; then export NPM_TAG="--tag beta"; fi
           echo "npm publish ${NPM_TAG}"
 
   website:

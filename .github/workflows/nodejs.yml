@@ -19,13 +19,13 @@ jobs:
       - name: sayhello
         env:
           master: contains(github.ref, 'master')
-          tag: contains(github.ref, '/refs/tags')
+          tag: contains(github.ref, 'refs/tags/')
 
         run: |
-          echo "hello2"
-          if [ ${master} ]; then export NPM_TAG=alpha; fi
-          if [ ${tag} ]; then export NPM_TAG=beta; fi
-          echo "npm publish --tag ${NPM_TAG}"
+          echo "hello3"
+          if [ ${master} ]; then export NPM_TAG="--tag alpha"; fi
+          if [ ${tag} ]; then export NPM_TAG="--tag beta"; fi
+          echo "npm publish ${NPM_TAG}"
 
   website:
     runs-on: ubuntu-latest

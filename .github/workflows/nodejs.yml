@@ -6,8 +6,7 @@ jobs:
   sayhello:
     runs-on: ubuntu-latest
 
-    if: contains(github.ref, 'master')
-    if: startsWith(github.ref, 'master')
+    if: contains(github.ref, 'master') && startsWith(github.ref, 'master')
 
     strategy:
       matrix:

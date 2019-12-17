@@ -39,9 +39,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Dump job context
         env:
-          GH_REF: ${{github.ref}}
           GH_SMT: ${{secrets.GH_NAME}}
-        run: echo "HUEHUE $GH_REF $GH_SMT"
+        run: echo "HUEHUE $GH_SMT"
       - name: website
         run: |
           echo "${GH_SMT}"

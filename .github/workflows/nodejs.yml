@@ -40,11 +40,12 @@ jobs:
       - name: Dump job context
         env:
           GH_REF: ${{github.ref}}
-        run: echo "HUEHUE $GH_REF"
+          WAT: ${{secrets.GH_NAME}}
+        run: echo "HUEHUE $GH_REF $WAT"
       - name: website
         run: |
-          echo "${GH_NAME}"
-          echo "${{GH_NAME}}"
+          echo "${WAT}"
+          echo "${{WAT}}"
           git config --global user.name "${GH_NAME}"
           git config --global user.email "${GH_EMAIL}"
           echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc

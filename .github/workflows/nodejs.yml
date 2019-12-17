@@ -48,5 +48,5 @@ jobs:
           echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc;
           cd website;
           yarn;
-          GIT_USER="${GH_NAME}" yarn publish-gh-pages;
+          GIT_USER="${GH_NAME}" && yarn publish-gh-pages;
           cd ../;

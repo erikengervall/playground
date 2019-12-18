@@ -1,1 +1,1 @@
-module.exports = () => console.log('122 👋')
+module.exports = () => console.log('1223 👋')

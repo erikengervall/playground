@@ -23,10 +23,10 @@ jobs:
           GH_EMAIL: ${{ secrets.GH_EMAIL }}
           GH_TOKEN_PLAYGROUND: ${{ secrets.GH_TOKEN_PLAYGROUND }}
         run: |
-          git config --global user.name "${{ GH_NAME }}"
-          git config --global user.email "${{ GH_EMAIL }}"
-          echo "machine github.com login ${{ GH_NAME }} password ${{ GH_TOKEN_PLAYGROUND }}" > ~/.netrc
-          cd website && yarn install && GIT_USER="${{ GH_NAME }}" yarn run publish-gh-pages
+          git config --global user.name "${GH_NAME}"
+          git config --global user.email "${GH_EMAIL}"
+          echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc
+          cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
 
   npm_publish:
     runs-on: ubuntu-latest
@@ -50,5 +50,5 @@ jobs:
         run: |
           if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          echo "//registry.npmjs.org/:_authToken=${{ NPM_TOKEN }}" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
           cd packages/playground && npm publish ${NPM_TAG}

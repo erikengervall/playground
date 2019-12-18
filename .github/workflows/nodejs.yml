@@ -3,35 +3,10 @@ name: Playground Node CI
 on: push
 
 jobs:
-  website:
-    runs-on: ubuntu-latest
-
-    # if: startsWith(github.ref, 'refs/tags/')
-    # if: contains(github.ref, 'this-will-fail')
-
-    # needs: sayhello
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: website
-        env:
-          GH_NAME: ${{ secrets.GH_NAME }}
-          GH_EMAIL: ${{ secrets.GH_EMAIL }}
-          GH_TOKEN_PLAYGROUND: ${{ secrets.GH_TOKEN_PLAYGROUND }}
-        run: |
-          git config --global user.name "${GH_NAME}"
-          git config --global user.email "${GH_EMAIL}"
-          echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc
-          cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
-
   npm_publish:
     runs-on: ubuntu-latest
 
-    # if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/')
     # if: contains(github.ref, 'this-will-fail')
 
     # needs: sayhello
@@ -52,3 +27,28 @@ jobs:
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
           cd packages/playground && npm publish ${NPM_TAG}
+
+  website:
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.ref, 'refs/tags/')
+    # if: contains(github.ref, 'this-will-fail')
+
+    needs: npm_publish
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: website
+        env:
+          GH_NAME: ${{ secrets.GH_NAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+          GH_TOKEN_PLAYGROUND: ${{ secrets.GH_TOKEN_PLAYGROUND }}
+        run: |
+          git config --global user.name "${GH_NAME}"
+          git config --global user.email "${GH_EMAIL}"
+          echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc
+          cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages

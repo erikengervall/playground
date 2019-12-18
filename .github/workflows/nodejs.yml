@@ -51,7 +51,8 @@ jobs:
         run: |
           if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          cd packages/playground && yarn publish ${NPM_TAG}
+          cd packages/playground
+          yarn publish ${NPM_TAG}
 
   website:
     name: Deploy website
@@ -73,4 +74,6 @@ jobs:
           git config --global user.name "${GH_NAME}"
           git config --global user.email "${GH_EMAIL}"
           echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc
-          cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
+          cd website
+          yarn install
+          GIT_USER="${GH_NAME}" yarn run publish-gh-pages

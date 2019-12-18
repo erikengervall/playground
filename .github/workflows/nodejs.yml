@@ -13,8 +13,11 @@ jobs:
         with:
           node-version: 12.x
       - name: test
+        env:
+          GH_REF: ${{ github.ref }}
         run: |
           echo "mocked tests"
+          echo "github.ref: ${GH_REF}"
 
   npm_publish:
     runs-on: ubuntu-latest
@@ -25,20 +28,28 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      # - name: Use Node.js 12.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12.x
+      # - name: npm publish
+      #   env:
+      #     IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
+      #     IS_BETA: ${{ contains(github.ref, 'beta')}}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: |
+      #     if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
+      #     if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
+      #     echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      #     cd packages/playground && npm publish ${NPM_TAG}
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-      - name: npm publish
-        env:
-          IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
-          IS_BETA: ${{ contains(github.ref, 'beta')}}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
-          if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          cd packages/playground && npm publish ${NPM_TAG}
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: yarn install
+      - env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn publish --access public
 
   website:
     runs-on: ubuntu-latest

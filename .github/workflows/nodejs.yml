@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
 
     if: startsWith(github.ref, 'refs/tags/')
-    # if: contains(github.ref, 'this-will-fail')
 
     steps:
       - uses: actions/checkout@v1
@@ -30,7 +29,6 @@ jobs:
     runs-on: ubuntu-latest
 
     if: startsWith(github.ref, 'refs/tags/')
-    # if: contains(github.ref, 'this-will-fail')
 
     needs: npm_publish
 

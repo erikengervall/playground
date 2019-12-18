@@ -13,7 +13,8 @@
   "scripts": {
     "start": "ts-node ./index",
     "test:root": "jest dummy.spec.ts",
-    "test": "yarn test:root && lerna run test --stream --concurrency 1"
+    "test": "yarn test:root && lerna run test --stream --concurrency 1",
+    "qq": "./scripts/test.sh"
   },
   "dependencies": {
     "execa": "^3.3.0",

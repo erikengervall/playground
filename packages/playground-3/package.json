@@ -1,6 +1,6 @@
 {
   "name": "@engervall/playground-3",
-  "version": "0.0.15",
+  "version": "0.0.16-alpha.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,

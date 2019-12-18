@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 12.x
       - name: website
-        if: contains(github.ref, 'this-will-fail')
+        # if: contains(github.ref, 'this-will-fail')
         run: |
           git config --global user.name "${{secrets.GH_NAME}}"
           git config --global user.email "${{secrets.GH_EMAIL}}"
@@ -55,4 +55,4 @@ jobs:
         run: |
           if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          cd packages/playground && npm publish ${NPM_TAG}
+          cd packages/playground && NPM_TOKEN=${{secrets.NPM_TOKEN}} npm publish ${NPM_TAG}

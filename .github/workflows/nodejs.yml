@@ -18,11 +18,15 @@ jobs:
         with:
           node-version: 12.x
       - name: website
+        env:
+          GH_NAME: ${{ secrets.GH_NAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+          GH_TOKEN_PLAYGROUND: ${{ secrets.GH_TOKEN_PLAYGROUND }}
         run: |
-          git config --global user.name "${{secrets.GH_NAME}}"
-          git config --global user.email "${{secrets.GH_EMAIL}}"
-          echo "machine github.com login ${{secrets.GH_NAME}} password ${{secrets.GH_TOKEN_PLAYGROUND}}" > ~/.netrc
-          cd website && yarn install && GIT_USER="${{secrets.GH_NAME}}" yarn run publish-gh-pages
+          git config --global user.name "${{ GH_NAME }}"
+          git config --global user.email "${{ GH_EMAIL }}"
+          echo "machine github.com login ${{ GH_NAME }} password ${{ GH_TOKEN_PLAYGROUND }}" > ~/.netrc
+          cd website && yarn install && GIT_USER="${{ GH_NAME }}" yarn run publish-gh-pages
 
   npm_publish:
     runs-on: ubuntu-latest
@@ -40,9 +44,11 @@ jobs:
           node-version: 12.x
       - name: npm publish
         env:
-          IS_ALPHA: ${{contains(github.ref, 'alpha')}}
-          IS_BETA: ${{contains(github.ref, 'beta')}}
+          IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
+          IS_BETA: ${{ contains(github.ref, 'beta')}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          cd packages/playground && NPM_TOKEN=${{secrets.NPM_TOKEN}} npm publish ${NPM_TAG}
+          echo "//registry.npmjs.org/:_authToken=${{ NPM_TOKEN }}" > ~/.npmrc
+          cd packages/playground && npm publish ${NPM_TAG}

@@ -9,8 +9,6 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     # if: contains(github.ref, 'this-will-fail')
 
-    # needs: sayhello
-
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 12.x

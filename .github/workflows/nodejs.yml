@@ -23,9 +23,9 @@ jobs:
           node-version: 12.x
       - name: print meta
         env:
-          GH_META: ${{ github }}
+          GH_REF: ${{ github.ref }}
         run: |
-          echo "github: ${GH_META}"
+          echo "GH_REF: ${GH_REF}"
 
   npm_publish:
     name: Publish to npm

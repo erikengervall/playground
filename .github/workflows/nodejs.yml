@@ -74,6 +74,13 @@ jobs:
           git config --global user.name "${GH_NAME}"
           git config --global user.email "${GH_EMAIL}"
           echo "machine github.com login ${GH_NAME} password ${GH_TOKEN_PLAYGROUND}" > ~/.netrc
+
+          cd docs
+          echo "\n### Meta" >> doc1.md
+          echo "\nWebsite last deployed at: $(date '+%Y-%m-%d %H:%M:%S')" >> doc1.md
+          echo "\nWebsite is showing ref ${{ github.ref }}" >> doc1.md
+          cd ../
+
           cd website
           yarn install
           yarn run publish-gh-pages

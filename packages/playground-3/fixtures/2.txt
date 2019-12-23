@@ -1,0 +1,1 @@
+quick-find-in-files recursively searched sub-directories in a high-performance manner by leveraging the speed of c++.

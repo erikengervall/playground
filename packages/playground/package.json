@@ -1,6 +1,6 @@
 {
   "name": "@engervall/playground",
-  "version": "not-semver",
+  "version": "0.0.16",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

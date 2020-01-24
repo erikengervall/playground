@@ -1,4 +1,3 @@
-import { quickFindInFiles } from 'quick-find-in-files'
+import { fastFindInFiles } from 'fast-find-in-files'
 
-console.log(quickFindInFiles)
-// console.log('~ ', quickFindInFiles(`${process.cwd()}/fixtures`, 'find'))
+console.log(JSON.stringify(fastFindInFiles(`${process.cwd()}/fixtures`, 'find'), null, 2))

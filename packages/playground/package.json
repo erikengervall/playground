@@ -5,5 +5,11 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"@engervall/playground 👋\""
+  },
+  "devDependencies": {
+    "dockest": "2.0.0-alpha.4"
+  },
+  "dependencies": {
+    "bull-board": "1.0.0-alpha.0"
   }
 }

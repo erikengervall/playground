@@ -8,5 +8,5 @@ const main = async (shouldResolve: boolean) => {
   console.log({ a })
   console.timeEnd('main')
 }
-
+//
 main(false)

@@ -5,5 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"@engervall/playground-2 👋\""
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.0"
   }
 }

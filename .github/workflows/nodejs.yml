@@ -27,19 +27,19 @@ jobs:
           echo "GH_REF: ${GH_REF}"
           echo "github.repository": ${{ github.repository }}
 
-  ####### Lint
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+  # ####### Lint
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
 
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - run: yarn prep
-      - run: yarn lint
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12.x
+  #     - run: yarn prep
+  #     - run: yarn lint
 
   ####### Unit tests
   unit_tests:

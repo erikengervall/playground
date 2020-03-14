@@ -73,14 +73,9 @@ jobs:
       - run: yarn install
       - name: publish
         env:
-          IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
-          IS_BETA: ${{ contains(github.ref, 'beta')}}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
-          if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          cd packages/playground
-          yarn publish ${NPM_TAG}
+          yarn ci:release:canary
 
   npm_publish:
     name: Publish to npm
@@ -103,7 +98,7 @@ jobs:
         run: |
           if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
           if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          cd packages/playground
+          cd packages/playground-1
           yarn publish ${NPM_TAG}
 
   website:

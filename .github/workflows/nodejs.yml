@@ -15,15 +15,11 @@ jobs:
     name: Print job context data
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
       - name: Print context 🎉
         env:
           GH_REF: ${{ github.ref }}

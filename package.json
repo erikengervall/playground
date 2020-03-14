@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "pkg:install": "lerna exec 'yarn'",
-    "prep": "yarn pkg:install",
+    "pkg:build": "lerna run build",
+    "prep": "yarn pkg:install && yarn pkg:build",
     "test": "jest",
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\""
   },

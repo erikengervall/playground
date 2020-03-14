@@ -7,31 +7,21 @@
     "./index.ts"
   ],
   "scripts": {
-    "start": "ts-node ./index",
-    "test:root": "jest dummy.spec.ts",
-    "test": "yarn test:root && lerna run test --stream --concurrency 1",
-    "qq": "./scripts/test.sh"
-  },
-  "dependencies": {
-    "execa": "^3.3.0",
-    "nodemon": "^1.19.4",
-    "ramda": "^0.26.1"
+    "pkg:install": "lerna exec 'yarn'",
+    "prep": "yarn pkg:install",
+    "test": "jest",
+    "lint": "eslint \"./packages/**/*.{js,ts,tsx}\""
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^25.1.4",
     "@types/node": "^12.12.7",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
-    "dockest": "^2.0.0-alpha.1",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "jest": "^24.9.0",
     "lerna": "^3.18.4",
     "prettier": "^1.19.1",
-    "prettier-eslint": "^9.0.1",
-    "ts-jest": "^24.1.0",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.2"
+    "prettier-eslint": "^9.0.1"
   }
 }

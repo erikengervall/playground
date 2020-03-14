@@ -1,5 +1,5 @@
 {
-  "name": "@engervall/playground",
+  "name": "@engervall/playground-1",
   "version": "0.0.17",
   "main": "index.js",
   "license": "MIT",
@@ -7,9 +7,7 @@
     "test": "echo \"@engervall/playground 👋\""
   },
   "devDependencies": {
-    "dockest": "2.0.0-alpha.4"
-  },
-  "dependencies": {
-    "bull-board": "1.0.0-alpha.0"
+    "dockest": "2.0.0",
+    "jest": "^25.1.0"
   }
 }

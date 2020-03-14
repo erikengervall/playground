@@ -14,6 +14,5 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true
   },
-  "include": ["./packages/**/*.*"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["./src/**/*"]
 }

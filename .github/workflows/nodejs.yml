@@ -62,7 +62,7 @@ jobs:
     name: Publish canary to npm
     runs-on: ubuntu-latest
     needs: [print, lint, unit_tests]
-    if: github.repository == 'refs/tags/'
+    if: github.repository == 'erikengervall/playground'
 
     steps:
       - uses: actions/checkout@v1

@@ -10,7 +10,7 @@
     "pkg:install": "lerna exec 'yarn'",
     "pkg:build": "lerna run build",
     "prep": "yarn && yarn pkg:install && yarn pkg:build",
-    "test": "jest",
+    "test": "lerna run test",
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\""
   },
   "devDependencies": {

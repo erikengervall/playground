@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"@engervall/playground 👋\""
+    "test": "jest"
   },
   "devDependencies": {
     "dockest": "2.0.0",

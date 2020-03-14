@@ -1,7 +1,13 @@
 {
   "name": "@engervall/private-1",
   "version": "0.0.17",
-  "main": "index.js",
+  "main": "dist/index.js",
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
 }

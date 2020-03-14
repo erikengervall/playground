@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./packages",
     "outDir": "dist",
     "esModuleInterop": true,
     "lib": ["es2019"],

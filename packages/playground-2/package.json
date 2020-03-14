@@ -1,7 +1,7 @@
 {
   "name": "@engervall/playground-2",
   "version": "0.0.17",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc"

@@ -25,7 +25,10 @@ jobs:
           GH_REF: ${{ github.ref }}
         run: |
           echo "GH_REF: ${GH_REF}"
-          echo "github.repository": ${{ github.repository }}
+          echo "github.repository: ${{ github.repository }}"
+          echo "github.ref: ${{ github.ref }}"
+          echo "github.head_ref: ${{ github.head_ref }}"
+          echo "github.base_ref: ${{ github.base_ref }}"
 
   # ####### Lint
   # lint:

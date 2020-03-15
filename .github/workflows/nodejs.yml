@@ -41,7 +41,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: yarn prep
+      - run: echo "lint"
+      # - run: yarn prep
       # - run: yarn lint
 
   ####### Unit tests
@@ -55,8 +56,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: yarn prep
-      - run: yarn test:unit
+      - run: echo "test:unit"
+      # - run: yarn prep
+      # - run: yarn test:unit
 
   npm_publish_canary:
     name: Publish canary to npm

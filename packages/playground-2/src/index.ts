@@ -1,3 +1,3 @@
 export default () => {
-  console.log('@engervall/playgroud-2')
+  console.log('@engervall/playgroud-2 ✌🏼')
 }

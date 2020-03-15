@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test:unit": "jest"
+    "test:unit": "jest "
   },
   "devDependencies": {
     "dockest": "2.0.0",

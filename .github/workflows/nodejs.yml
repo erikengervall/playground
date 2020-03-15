@@ -74,8 +74,7 @@ jobs:
       - name: publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn ci:release:canary
+        run: yarn ci:release:canary
 
   npm_publish:
     name: Publish to npm

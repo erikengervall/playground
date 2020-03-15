@@ -3,6 +3,7 @@
   "version": "0.0.20",
   "main": "dist/index.js",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "prepublishOnly": "yarn build",
     "build": "tsc"

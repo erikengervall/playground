@@ -11,7 +11,7 @@
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\"",
     "ci:release": "lerna publish",
     "ci:release:canary": "lerna publish --preid \"canary-`git rev-parse --short HEAD`\" --exact --canary --yes",
-    "bump": "yarn lerna version --no-push"
+    "bump": "yarn lerna version"
   },
   "devDependencies": {
     "@types/node": "^13.9.1",

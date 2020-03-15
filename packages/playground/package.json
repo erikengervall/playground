@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test:unit": "jest "
+    "prepublishOnly": "yarn build",
+    "build": "tsc",
+    "test:unit": "jest"
   },
   "devDependencies": {
     "dockest": "2.0.0",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "typescript": "^3.8.3"
   }
 }

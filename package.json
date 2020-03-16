@@ -10,7 +10,7 @@
     "test:unit": "lerna run test:unit",
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\"",
     "ci:release": "lerna publish --yes",
-    "ci:release:canary": "lerna publish --preid `git rev-parse --short HEAD` --canary --yes",
+    "ci:release:canary": "lerna publish --preid `git rev-parse --short HEAD` --force-publish * --canary --yes",
     "bump": "yarn lerna version"
   },
   "devDependencies": {

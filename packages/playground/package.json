@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn build --project tsconfig.publish.json",
     "build": "tsc",
     "test:unit": "jest"
   },

@@ -6,7 +6,7 @@
   "scripts": {
     "prepublishOnly": "yarn build --project tsconfig.publish.json",
     "build": "tsc",
-    "test:unit": "jest"
+    "test:unit": "jest ."
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",

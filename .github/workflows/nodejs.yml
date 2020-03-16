@@ -94,8 +94,8 @@ jobs:
       - run: yarn install
       - name: publish
         env:
-          IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
-          IS_BETA: ${{ contains(github.ref, 'beta')}}
+          # IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
+          # IS_BETA: ${{ contains(github.ref, 'beta')}}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn ci:release

@@ -9,7 +9,7 @@
     "prep": "yarn && yarn pkg:install && yarn pkg:build",
     "test:unit": "lerna run test:unit",
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\"",
-    "ci:release": "lerna publish",
+    "ci:release": "lerna publish --yes",
     "ci:release:canary": "lerna publish --preid \"canary-`git rev-parse --short HEAD`\" --exact --canary --yes",
     "bump": "yarn lerna version"
   },

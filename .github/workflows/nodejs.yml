@@ -73,8 +73,7 @@ jobs:
           node-version: 12.x
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - name: publish
-        env:
+      - env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn ci:release:canary
 
@@ -92,17 +91,9 @@ jobs:
           node-version: 12.x
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - name: publish
-        env:
-          # IS_ALPHA: ${{ contains(github.ref, 'alpha')}}
-          # IS_BETA: ${{ contains(github.ref, 'beta')}}
+      - env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn ci:release
-          # if [ ${IS_ALPHA} = true ]; then export NPM_TAG="--tag alpha"; fi
-          # if [ ${IS_BETA} = true ]; then export NPM_TAG="--tag beta"; fi
-          # cd packages/playground
-          # yarn publish ${NPM_TAG}
+        run: yarn ci:release
 
   ####### Deploy website
   website:

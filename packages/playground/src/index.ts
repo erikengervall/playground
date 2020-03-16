@@ -1,4 +1,4 @@
-const numba = 1
+const numba = 12
 
 export const main = (name = '@engervall/playground') => {
   console.log(name, '~~~', numba)

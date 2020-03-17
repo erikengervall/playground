@@ -9,9 +9,9 @@
     "prep": "yarn && yarn pkg:install && yarn pkg:build",
     "test:unit": "lerna run test:unit",
     "lint": "eslint \"./packages/**/*.{js,ts,tsx}\"",
-    "ci:release": "lerna publish --force-publish=\"*\" --yes",
-    "ci:release:canary": "lerna publish --preid `git rev-parse --short HEAD` --force-publish=\"*\" --canary --yes",
-    "bump": "yarn lerna version --message \"chore(release): publish %s\" --force-publish=\"*\""
+    "ci:release": "       lerna publish --force-publish=\"*\" --yes",
+    "ci:release:canary": "lerna publish --force-publish=\"*\" --yes --preid `git rev-parse --short HEAD` --canary",
+    "bump": "             lerna version --force-publish=\"*\" --message \"chore(release): publish %s\""
   },
   "devDependencies": {
     "@types/node": "^13.9.1",

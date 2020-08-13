@@ -1,4 +1,4 @@
-// Cherry pick test: This file & commit should go into the release branch
+// patch
 
 export const a = (): number => {
   return 1

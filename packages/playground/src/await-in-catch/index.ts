@@ -1,5 +1,7 @@
 import { sleep } from '../sleep'
 
+// Cherry pick test: This file & commit should be ignored
+
 export const awaitInCatch = async () => {
   await sleep({ shouldReject: true }).catch(async reject1 => {
     console.log(reject1)

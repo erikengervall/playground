@@ -1,5 +1,5 @@
 import { sleep } from '../sleep'
-//
+
 export const awaitInCatch = async () => {
   await sleep({ shouldReject: true }).catch(async reject1 => {
     console.log(reject1)

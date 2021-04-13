@@ -7,3 +7,5 @@ This repo acts as an experimental playground for JavaScript concepts, libraries,
 1. Push all changes
 2. Run `yarn lerna version`
 3. Done ✅
+
+<!-- critical patch! -->

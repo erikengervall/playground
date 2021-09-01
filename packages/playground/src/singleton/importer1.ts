@@ -5,3 +5,5 @@ const some2 = importer2()
 someSingleton.hello()
 
 console.log(some2 === someSingleton)
+
+export const importer1import = someSingleton

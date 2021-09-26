@@ -1,0 +1,20 @@
+services:
+  docusaurus:
+    build:
+      context: /Users/eengervall/dev/erikengervall/playground
+    ports:
+    - published: 3000
+      target: 3000
+    - published: 35729
+      target: 35729
+    volumes:
+    - /Users/eengervall/dev/erikengervall/playground/docs:/app/docs:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/blog:/app/website/blog:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/core:/app/website/core:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/i18n:/app/website/i18n:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/pages:/app/website/pages:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/static:/app/website/static:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/sidebars.json:/app/website/sidebars.json:rw
+    - /Users/eengervall/dev/erikengervall/playground/website/siteConfig.js:/app/website/siteConfig.js:rw
+    working_dir: /app/website
+version: '3'

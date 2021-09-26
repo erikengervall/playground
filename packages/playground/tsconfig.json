@@ -13,5 +13,5 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "dockest.ts"]
 }

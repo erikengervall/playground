@@ -11,3 +11,4 @@ This repo acts as an experimental playground for JavaScript concepts, libraries,
 <!-- critical patch! -->
 
 <!-- 1 -->
+<!-- 2 -->

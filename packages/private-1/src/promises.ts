@@ -1,26 +1,26 @@
-const sleep = (ms: number = 2500) => new Promise(resolve => setTimeout(resolve, ms))
+const sleep = (ms: number = 2500) => new Promise(resolve => setTimeout(resolve, ms));
 
 const handleFailure = async (error: Error) => {
-  console.time('handleFailure')
-  await sleep()
-  console.timeEnd('handleFailure')
-  console.log('handleFailure', { error })
-}
+  console.time('handleFailure');
+  await sleep();
+  console.timeEnd('handleFailure');
+  console.log('handleFailure', { error });
+};
 
 const failure = async () => {
-  console.time('failure')
-  await sleep()
-  console.timeEnd('failure')
-  throw new Error('failure')
-}
+  console.time('failure');
+  await sleep();
+  console.timeEnd('failure');
+  throw new Error('failure');
+};
 
 export const main = async () => {
-  console.time('main')
+  console.time('main');
   await failure().catch(async error => {
-    await handleFailure(error)
-  })
-  console.timeEnd('main')
-}
+    await handleFailure(error);
+  });
+  console.timeEnd('main');
+};
 
 // main()
 
@@ -38,23 +38,23 @@ main: 5021.519ms
  */
 
 const firstHandler = async (earlyAbort: any) => {
-  await sleep()
+  await sleep();
 
   // Do stuff
 
-  console.log('1')
+  console.log('1');
 
-  earlyAbort({ erro: 'hello' })
+  earlyAbort({ erro: 'hello' });
 
-  console.log('3')
-}
+  console.log('3');
+};
 
 const main2 = async () => {
   await new Promise((_, reject) => {
-    firstHandler(reject)
-  }).catch(error => console.log({ error }))
+    firstHandler(reject);
+  }).catch(error => console.log({ error }));
 
-  console.log('2')
-}
+  console.log('2');
+};
 
-main2()
+main2();

@@ -1,7 +1,7 @@
-import { sdk } from './sdk'
+import { sdk } from './sdk';
 
-console.log('helper imported')
+console.log('helper imported');
 
 export const helper = () => {
-  console.log('helper', sdk)
-}
+  console.log('helper', sdk);
+};

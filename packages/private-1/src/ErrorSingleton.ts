@@ -1,18 +1,18 @@
 export class Logger {
-  static correlationId: string
-  static singletonInstance: Logger
+  static correlationId: string;
+  static singletonInstance: Logger;
 
   constructor(correlationId?: string) {
     if (!Logger.singletonInstance) {
-      Logger.singletonInstance = this
+      Logger.singletonInstance = this;
     }
 
     if (correlationId) {
-      Logger.correlationId = correlationId
+      Logger.correlationId = correlationId;
     }
 
-    return Logger.singletonInstance
+    return Logger.singletonInstance;
   }
 
-  info = (args: any) => console.log(args, { correlationId: Logger.correlationId })
+  info = (args: any) => console.log(args, { correlationId: Logger.correlationId });
 }

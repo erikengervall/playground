@@ -1,3 +1,3 @@
-import { fastFindInFiles } from 'fast-find-in-files'
+import { fastFindInFiles } from 'fast-find-in-files';
 
-console.log(JSON.stringify(fastFindInFiles(`${process.cwd()}/fixtures`, 'find'), null, 2))
+console.log(JSON.stringify(fastFindInFiles(`${process.cwd()}/fixtures`, 'find'), null, 2));

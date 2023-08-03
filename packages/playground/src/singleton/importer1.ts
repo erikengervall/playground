@@ -1,9 +1,9 @@
-import { someSingleton } from './singleton'
-import { importer2 } from './importer2'
+import { someSingleton } from './singleton';
+import { importer2 } from './importer2';
 
-const some2 = importer2()
-someSingleton.hello()
+const some2 = importer2();
+someSingleton.hello();
 
-console.log(some2 === someSingleton)
+console.log(some2 === someSingleton);
 
-export const importer1import = someSingleton
+export const importer1import = someSingleton;

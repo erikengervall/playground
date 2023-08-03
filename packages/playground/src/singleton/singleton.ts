@@ -1,13 +1,13 @@
 class SomeSingleton {
-  date: Date
+  date: Date;
 
   constructor() {
-    this.date = new Date()
+    this.date = new Date();
   }
 
   hello() {
-    console.log('hello', this.date)
+    console.log('hello', this.date);
   }
 }
 
-export const someSingleton = new SomeSingleton()
+export const someSingleton = new SomeSingleton();

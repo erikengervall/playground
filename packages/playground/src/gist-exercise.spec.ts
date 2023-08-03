@@ -1,4 +1,4 @@
-import { getLongWordsRightToLeft } from './gist-exercise'
+import { getLongWordsRightToLeft } from './gist-exercise';
 
 describe('iterative-gist', () => {
   it('getLongWordsRightToLeft', () => {
@@ -6,6 +6,6 @@ describe('iterative-gist', () => {
       getLongWordsRightToLeft(
         'hello this is a sentence that contains a few words that are suuuuper long but not toooooo long'
       )
-    ).toMatchInlineSnapshot(`"toooooo, suuuuper, contains, sentence"`)
-  })
-})
+    ).toMatchInlineSnapshot(`"toooooo, suuuuper, contains, sentence"`);
+  });
+});

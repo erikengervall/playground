@@ -1,3 +1,3 @@
 export default () => {
-  console.log('private-1')
-}
+  console.log('private-1');
+};

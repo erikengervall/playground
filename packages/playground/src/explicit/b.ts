@@ -1,5 +1,5 @@
 // patch
 
 export const a = (): number => {
-  return 1
-}
+  return 1;
+};

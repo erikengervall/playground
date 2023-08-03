@@ -1,7 +1,7 @@
-import { playground } from './index'
+import { playground } from './index';
 
 describe('index', () => {
   it('should match', () => {
-    expect(playground('wadup 🤙🏼')).toEqual('wadup 🤙🏼')
-  })
-})
+    expect(playground('wadup 🤙🏼')).toEqual('wadup 🤙🏼');
+  });
+});

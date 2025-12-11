@@ -1,0 +1,24 @@
+{
+  "name": "backend-packages-below-this-line",
+  "version": "1.0.0",
+  "description": "An empty package with a default export method",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/engervall/playground.git",
+    "directory": "packages/backend-packages-below-this-line"
+  },
+  "keywords": [],
+  "author": "",
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE.md"
+  ]
+}
+

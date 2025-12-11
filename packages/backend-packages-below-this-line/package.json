@@ -1,6 +1,6 @@
 {
   "name": "backend-packages-below-this-line",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "An empty package with a default export method",
   "main": "index.js",
   "license": "MIT",
@@ -21,4 +21,3 @@
     "LICENSE.md"
   ]
 }
-

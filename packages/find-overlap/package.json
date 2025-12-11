@@ -1,6 +1,6 @@
 {
   "name": "@engervall/find-overlap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "license": "MIT",
   "private": true,
@@ -11,6 +11,5 @@
   "devDependencies": {
     "ts-node": "^8.5.4",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {}
+  }
 }
